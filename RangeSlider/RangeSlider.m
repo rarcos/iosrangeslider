@@ -18,6 +18,7 @@
 @implementation RangeSlider
 
 @synthesize minimumValue, maximumValue, minimumRange, selectedMinimumValue, selectedMaximumValue;
+@synthesize valueSnapToInterval;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -92,15 +93,18 @@
     
     NSLog(@"Tapable size %f", _minThumb.bounds.size.width); 
     [self updateTrackHighlight];
-    
-    
 }
 
--(float)xForValue:(float)value{
+-(float)xForValue:(float)value {
     return (self.frame.size.width-(_padding*2))*((value - minimumValue) / (maximumValue - minimumValue))+_padding;
 }
 
 -(float) valueForX:(float)x{
+    if (self.valueSnapToInterval) {
+        NSLog(@"x before snap: %f", x);
+        x = roundf(x / self.valueSnapToInterval) * self.valueSnapToInterval;
+        NSLog(@"x snapped to: %f", x);
+    }
     return minimumValue + (x-_padding) / (self.frame.size.width-(_padding*2)) * (maximumValue - minimumValue);
 }
 
@@ -113,7 +117,6 @@
     if(_minThumbOn){
         _minThumb.center = CGPointMake(MAX([self xForValue:minimumValue],MIN(touchPoint.x - distanceFromCenter, [self xForValue:selectedMaximumValue - minimumRange])), _minThumb.center.y);
         selectedMinimumValue = [self valueForX:_minThumb.center.x];
-        
     }
     if(_maxThumbOn){
         _maxThumb.center = CGPointMake(MIN([self xForValue:maximumValue], MAX(touchPoint.x - distanceFromCenter, [self xForValue:selectedMinimumValue + minimumRange])), _maxThumb.center.y);

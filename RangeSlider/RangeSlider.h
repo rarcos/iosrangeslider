@@ -33,4 +33,6 @@
 @property(nonatomic) float selectedMinimumValue;
 @property(nonatomic) float selectedMaximumValue;
 
+@property (nonatomic) CGFloat valueSnapToInterval;
+
 @end
