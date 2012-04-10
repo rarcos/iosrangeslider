@@ -52,23 +52,23 @@
     _maxThumbOn = false;
     _padding = 0;
     
-    _trackBackground = [[[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"bar-background.png"] stretchableImageWithLeftCapWidth:20.0f topCapHeight:0]] autorelease];
+    _trackBackground = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"bar-background.png"] stretchableImageWithLeftCapWidth:20.0f topCapHeight:0]];
     _trackBackground.frame = CGRectMake(_padding, _trackBackground.frame.size.height / 2.0, bounds.size.width - (_padding * 2), _trackBackground.frame.size.height);
     _trackBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [self addSubview:_trackBackground];
     
-    _track = [[[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"bar-highlight.png"] stretchableImageWithLeftCapWidth:20.0f topCapHeight:0]] autorelease];
+    _track = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"bar-highlight.png"] stretchableImageWithLeftCapWidth:20.0f topCapHeight:0]];
     _track.frame = CGRectMake(_padding, _track.frame.size.height / 2.0, bounds.size.width - (_padding * 2), _track.frame.size.height);
     _track.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self addSubview:_track];
     
-    _minThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
+    _minThumb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]];
     _minThumb.frame = CGRectMake(0, 0, bounds.size.height, bounds.size.height);
     _minThumb.contentMode = UIViewContentModeCenter;
     [self addSubview:_minThumb];
     
-    _maxThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
+    _maxThumb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]];
     _maxThumb.frame = CGRectMake(0, 0, bounds.size.height, bounds.size.height);
     _maxThumb.contentMode = UIViewContentModeCenter;
     [self addSubview:_maxThumb];    
