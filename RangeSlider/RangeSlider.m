@@ -87,7 +87,9 @@
     _minThumb.center = CGPointMake([self xForValue:selectedMinimumValue], 13.0f);
     _maxThumb.center = CGPointMake([self xForValue:selectedMaximumValue], 13.0f);
     
+#ifdef DEBUG
     NSLog(@"Tapable size %f", _minThumb.bounds.size.width); 
+#endif
     [self updateTrackHighlight];
 }
 
@@ -97,9 +99,13 @@
 
 -(float) valueForX:(float)x{
     if (self.valueSnapToInterval) {
+#ifdef DEBUG
         NSLog(@"x before snap: %f", x);
+#endif
         x = roundf(x / self.valueSnapToInterval) * self.valueSnapToInterval;
+#ifdef DEBUG
         NSLog(@"x snapped to: %f", x);
+#endif
     }
     return minimumValue + (x-_padding) / (self.frame.size.width-(_padding*2)) * (maximumValue - minimumValue);
 }
