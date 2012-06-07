@@ -50,7 +50,7 @@
     
     _minThumbOn = false;
     _maxThumbOn = false;
-    _padding = 0;
+    _padding = 5.0f;
     
     _trackBackground = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"bar-background.png"] stretchableImageWithLeftCapWidth:20.0f topCapHeight:0]];
     _trackBackground.frame = CGRectMake(_padding, _trackBackground.frame.size.height / 2.0, bounds.size.width - (_padding * 2), _trackBackground.frame.size.height);
